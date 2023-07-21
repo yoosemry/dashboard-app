@@ -21,7 +21,7 @@ formLogin.addEventListener('submit', async (e) => {
         const userCheking = users.find(find => find.username == username.value && find.password == password.value)
 
         if (!userCheking) throw new Error('invaled username or password')
-        loginBtn.value = 'loging ...'
+        loginBtn.value = 'login'
         let userInformation = {
             userId: userCheking.id,
             username: userCheking.username,

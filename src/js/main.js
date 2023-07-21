@@ -5,8 +5,6 @@ function activeLink() {
     list.forEach((item)=>{
         item.classList.remove("hovered");
 
-        
-
        
     });
     this.classList.add("hovered");
@@ -42,16 +40,7 @@ profileAvator.attributes[1].textContent = userinformation.photo;
 fullName.textContent = userinformation.name;
 
 
-// logout
 
-
-logOut = document.querySelectorAll('#logoutUser');
-
-logOut.onclick = function(){
-    localStorage.setItem('userInformation', null)
-    
-    window.location.href = '/index.html'
-}
 
    
 

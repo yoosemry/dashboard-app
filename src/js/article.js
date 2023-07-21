@@ -1,5 +1,3 @@
-
-
 const modal = document.querySelector('.article_modal');
 const overlay = document.querySelector('.article_overlay');
 const btnCloseModal = document.querySelector('.article_close-modal');
@@ -228,6 +226,19 @@ window.addEventListener('scroll', ()=>{
 
 
 displayArticle();
+
+
+
+// logout
+
+
+logOut = document.querySelectorAll('#logoutUser');
+
+logOut.onclick = function(){
+    localStorage.setItem('userInformation', null)
+    
+    window.location.href = '/index.html'
+}
 
 
 
