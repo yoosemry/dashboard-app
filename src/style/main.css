@@ -238,14 +238,11 @@ body{
     background-color: transparent;
     margin: 5rem 7rem;
     min-height: calc(100vh - 16rem);
-;
+
 
 }
 
-.central-container > * {
-    grid-column: cen-start / cen-end;
-   
-}
+
 
 
 
@@ -620,6 +617,10 @@ article model  */
     .overview-sections{
         grid-template-columns: 1fr;
     }
+
+    .overview-sections .overview-feeds{
+        margin-top: 3rem;
+    }
   
 }
 
@@ -650,4 +651,14 @@ article model  */
     left: initial;
     right: 0;
 }
+
+.central-container{
+   
+    background-color: transparent;
+    margin: 5rem 0rem;
+    min-height: calc(100vh - 16rem);
+
+
+}
+
 }

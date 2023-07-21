@@ -22,7 +22,8 @@ const userInformation = activeUser();
 
 if(userInformation){
     window.location.href = '/overview.html';
- }
+    
+  }
 
 const addUsersToLocal = function(data){
     const users = usersFromLocal();
@@ -77,7 +78,7 @@ const checkFullName = fullName.value.split(' ').length <= 1;
                     userId: dataRec.id,
                     username: dataRec.username,
                     name: dataRec.fullName,
-                    photo: dataRec.photo
+                    photo: dataRec.photo,
             
             };
          

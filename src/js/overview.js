@@ -3,6 +3,10 @@ let userInformation = JSON.parse(localStorage.getItem('userInformation'));
 
 let articles = JSON.parse(localStorage.getItem('articles'));
 
+if(!userInformation){
+  window.location.href = '/index.html';
+  
+}
 
 console.log(articles)
 const renderArticles = function(data){

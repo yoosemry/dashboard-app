@@ -5,9 +5,10 @@ const loginBtn = document.querySelector('.btn-login');
 
 let userInformation = JSON.parse(localStorage.getItem('userInformation'));
 
-// if(userInformation.username){
-//     window.location.href = '/overview.html'
-//   }
+if(userInformation){
+    window.location.href = '/overview.html';
+    
+  }
 
 
 formLogin.addEventListener('submit', async (e) => {
@@ -26,14 +27,14 @@ formLogin.addEventListener('submit', async (e) => {
             userId: userCheking.id,
             username: userCheking.username,
             name: userCheking.fullName,
-            photo: userCheking.photo
+            photo: userCheking.photo,
+            userActive: true
         }
 
         localStorage.setItem('userInformation', JSON.stringify(userInformation))
 
-        window.location.href = '/overview.html'
+        window.location.href = '/overview.html';
 
-        console.log(userInformation)
     } catch (error) {
         alert(error)
     }
