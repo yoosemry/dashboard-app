@@ -641,6 +641,11 @@ article model  */
 
 @media (max-width: 768px) {
   
+    .article_modal,.article_modal_up {
+
+        width: 80%;
+
+      }
 }
 
 @media (max-width: 480px) {
@@ -673,5 +678,11 @@ article model  */
     margin: 5rem 0rem;
     
 }
+
+.article_modal,.article_modal_up {
+    
+    width: 100%;
+
+  }
 
 }
