@@ -90,3 +90,60 @@
     font-style: italic;
   }
   
+
+/* Media Querys */
+
+/* Mobile-friendly styles */
+@media (max-width: 767px) {
+  .forecast-container {
+    padding: 10px;
+  }
+
+  .widget-container {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .forecast-details {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .day {
+    margin-bottom: 10px;
+  }
+
+  .day-details img {
+    max-width: 30px; 
+  }
+}
+
+/* iPad styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .forecast-container {
+    max-width: 720px;
+  }
+
+  .forecast-details {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .day-details img {
+    max-width: 35px;
+  }
+}
+
+/* Larger screen styles */
+@media (min-width: 1024px) {
+  .forecast-container {
+    max-width: 940px;
+  }
+
+  .forecast-details {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .day-details img {
+    max-width: 40px;
+  }
+}
+
