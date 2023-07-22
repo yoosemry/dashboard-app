@@ -44,11 +44,10 @@ fullName.textContent = userinformation.name;
 
    // logout
 
-
 logOut = document.querySelector('#logoutUser');
 
 logOut.addEventListener('click', (e)=>{
-    
+
     e.preventDefault();
     
     swal({
