@@ -36,12 +36,14 @@ submitForm.addEventListener('submit', function(event){
     event.preventDefault();
     
     if(password.value !== confirm.value){
-        alert("Password dosen't match");
+        swal("Stop", `Password dosen't match` , "warning");
+       
         return;
     }
 
     if(password.value.length < 8 && confirm.value.length < 8){
-        alert('Password Must Be 8 Characters')
+       
+        swal("Stop", `Password Must Be 8 Characters` , "warning");
         return;
     }
 
@@ -49,7 +51,8 @@ submitForm.addEventListener('submit', function(event){
 const checkFullName = fullName.value.split(' ').length <= 1;
 
  if(checkFullName){
-    alert('Complete Fullname');
+    
+    swal("Stop", `Complete Fullname Plz` , "warning");
     return;
  }         
 
@@ -61,7 +64,8 @@ const checkFullName = fullName.value.split(' ').length <= 1;
  });
 
         if(checkUser){
-            alert('This User Already Created');
+           
+            swal("Stop", `Already Created` , "error");
             return;
         }
         const avator = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJpuhV1SzYSmu7GtCJNKxbSGpo_kMqz0qhoQ&usqp=CAU"

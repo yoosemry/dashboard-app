@@ -7,7 +7,7 @@ if(!userInformation){
   window.location.href = '/index.html';
 }
 
-console.log(articles)
+
 const renderArticles = function(data){
     feedsContener.innerHTML = '';
    
