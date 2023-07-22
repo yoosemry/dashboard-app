@@ -5,7 +5,6 @@ let articles = JSON.parse(localStorage.getItem('articles'));
 
 if(!userInformation){
   window.location.href = '/index.html';
-  
 }
 
 console.log(articles)

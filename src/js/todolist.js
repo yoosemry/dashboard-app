@@ -7,6 +7,11 @@ let tasks = [];
 
 // soo aqrin user active ah
 let userInformation = JSON.parse(localStorage.getItem('userInformation'));
+if(!userInformation){
+  window.location.href = '/index.html';
+  
+}
+
 
 
 // Function to fetch tasks from JSON file

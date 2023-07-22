@@ -24,6 +24,12 @@ let currentPage = 1;
 
 let userInformation = JSON.parse(localStorage.getItem('userInformation'));
 
+if(!userInformation){
+  window.location.href = '/index.html';
+  
+}
+
+
 // open new post 
 const openModal = function () {
   modal.classList.remove('article_hidden');

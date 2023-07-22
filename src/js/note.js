@@ -17,6 +17,12 @@ let updateIndex;
 let notes = JSON.parse(localStorage.getItem("notes")) || [];
 let userInformation = JSON.parse(localStorage.getItem('userInformation'));
 
+if(!userInformation){
+  window.location.href = '/index.html';
+  
+}
+
+
 console.log(userInformation)
 showNotes(notes);
 addBox.addEventListener("click", () => {

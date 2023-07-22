@@ -15,6 +15,21 @@
     --black2:#999;
 
 }
+
+::-webkit-scrollbar {
+    width: 7px;
+
+  }
+
+
+  ::-webkit-scrollbar-track {
+    background: var(--white);
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--blue);
+    border-radius: 50px;
+  }
 html{
     font-size: 62.5%;
     box-sizing: border-box;
@@ -656,9 +671,7 @@ article model  */
    
     background-color: transparent;
     margin: 5rem 0rem;
-    min-height: calc(100vh - 16rem);
-
-
+    
 }
 
 }
