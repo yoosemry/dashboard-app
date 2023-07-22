@@ -19,9 +19,9 @@ formLogin.addEventListener('submit', async (e) => {
     try {
 
         let users = JSON.parse(localStorage.getItem('users'));
-        const userCheking = users.find(find => find.username == username.value && find.password == password.value)
+        const userCheking = users.find(find => find.username == username.value && find.password == password.value);
 
-        if (!userCheking) throw new Error('invaled username or password')
+        if (!userCheking) throw new Error('invaled username or password');
         loginBtn.value = 'login'
         let userInformation = {
             userId: userCheking.id,
@@ -36,7 +36,7 @@ formLogin.addEventListener('submit', async (e) => {
         window.location.href = '/overview.html';
 
     } catch (error) {
-        alert(error)
+        swal("Failed", `${error}` , "error");
     }
 
 

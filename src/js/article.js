@@ -235,16 +235,7 @@ displayArticle();
 
 
 
-// logout
 
-
-logOut = document.querySelectorAll('#logoutUser');
-
-logOut.onclick = function(){
-    localStorage.setItem('userInformation', null)
-    
-    window.location.href = '/index.html'
-}
 
 
 

@@ -42,7 +42,43 @@ fullName.textContent = userinformation.name;
 
 
 
-   
+   // logout
+
+
+logOut = document.querySelector('#logoutUser');
+
+logOut.addEventListener('click', (e)=>{
+    
+    e.preventDefault();
+    
+    swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+
+            
+          swal(`GoodBye ${userInformation.name}`, {
+            icon: "success",
+          });
+          setTimeout(()=>{
+
+            localStorage.setItem('userInformation', null);
+            window.location.href = '/index.html';
+
+          },1000)
+        } else {
+          swal("");
+        }
+      });
+
+})
+
+
 
 
 
