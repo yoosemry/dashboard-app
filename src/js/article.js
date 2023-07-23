@@ -100,7 +100,7 @@ const displayArticle =  function(){
    
   const slides = articlesData.slice(startIndex,endIndex); 
     
-  //articlesContainer.innerHTML = '';
+  // articlesContainer.innerHTML = '';
 
   slides.filter(fil => fil.userId === userInformation.userId).forEach((dato,ind) => {
 
@@ -134,6 +134,8 @@ const displayArticle =  function(){
 
 };
 
+
+
 const editArticle = function(id){
   const postUp = document.querySelector('#post_up');
   const titleUp = document.querySelector('#title_up');
@@ -165,8 +167,9 @@ const editArticle = function(id){
       const updateLocal = articlesData.filter(fil => fil.id !== id);
       updateLocal.push(update);
       localStorage.setItem('articles', JSON.stringify(updateLocal));
-      articlesData = articlesFromLocal();
-     displayArticle();
+      
+      displayArticle();
+   
      closeModalUp();
 
     
@@ -180,8 +183,8 @@ const deleteArticle = async function(id){
     // const myArticles=  articlesFromLocal();
     const myNewArticle = articlesData.filter((fin,ind )=> ind !== id);
      localStorage.setItem('articles', JSON.stringify(myNewArticle));
-     articlesData = articlesFromLocal();
-     displayArticle();
+    
+      displayArticle();
    
 }
 
@@ -221,7 +224,9 @@ const query = {
 
 });
 
+
 displayArticle();
+
 
 window.addEventListener('scroll', ()=>{
   const {scrollTop, scrollHeight, clientHeight} = document.documentElement;

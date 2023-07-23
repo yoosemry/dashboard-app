@@ -389,34 +389,54 @@ if (!activeDayEl.classList.contains("event")) {
 
 eventsContainer.addEventListener("click", (e) => {
 if (e.target.classList.contains("event")) {
-  if (confirm("Are you sure you want to delete this event?")) {
-    const eventTitle = e.target.children[0].children[1].innerHTML;
-    eventsArr.forEach((event) => {
-      if (
-        event.day === activeDay &&
-        event.month === month + 1 &&
-        event.year === year
-      ) {
-        event.events.forEach((item, index) => {
-          if (item.title === eventTitle) {
-            event.events.splice(index, 1);
+
+  swal({
+    title: "Are you sure?",
+    text: "to delete this event?",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+
+      const eventTitle = e.target.children[0].children[1].innerHTML;
+        eventsArr.forEach((event) => {
+          if (
+            event.day === activeDay &&
+            event.month === month + 1 &&
+            event.year === year
+          ) {
+            event.events.forEach((item, index) => {
+              if (item.title === eventTitle) {
+                event.events.splice(index, 1);
+              }
+            });
+         
+            
+            if (event.events.length === 0) {
+              eventsArr.splice(eventsArr.indexOf(event), 1);
+     
+              
+              const activeDayEl = document.querySelector(".day.active");
+              if (activeDayEl.classList.contains("event")) {
+                activeDayEl.classList.remove("event");
+              }
+            }
           }
         });
+        updateEvents(activeDay);
+      swal(`deleted `, {
+        icon: "success",
+      });
      
-        
-        if (event.events.length === 0) {
-          eventsArr.splice(eventsArr.indexOf(event), 1);
- 
-          
-          const activeDayEl = document.querySelector(".day.active");
-          if (activeDayEl.classList.contains("event")) {
-            activeDayEl.classList.remove("event");
-          }
-        }
-      }
-    });
-    updateEvents(activeDay);
-  }
+    } else {
+      swal("Cancel");
+    }
+  });
+
+
+
 }
 });
 
