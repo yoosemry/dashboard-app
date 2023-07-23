@@ -1,12 +1,9 @@
 
-  .forecast-container {
-    /* max-width: 545px; */
-    /* margin: 0 auto; */
-    /* background-color: #f0f0f0; */
-    box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .2);
-    padding: 20px;
-    border-radius: 10px;
-  }
+.forecast-container {
+  box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .2);
+  padding: 20px;
+  border-radius: 10px;
+}
   
   .forecast-title {
     text-align: center;
@@ -15,7 +12,7 @@
   
   .forecast-widgets {
     margin-top: 20px;
-    overflow-x: hidden;
+    overflow-x: auto;
   }
   
   .widget-container {
@@ -102,18 +99,49 @@
   .widget-container {
     width: 100%;
     flex-wrap: wrap;
-  }
-
-  .forecast-details {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .day {
-    margin-bottom: 10px;
+    /* Adjust grid-template-columns for smaller screens */
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .day-details img {
-    max-width: 30px; 
+    max-width: 30px;
+  }
+
+  /* Decrease button sizes and text for mobiles */
+  .city-btn {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .next-city {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}
+
+/* iPad and desktop styles */
+@media (min-width: 768px) {
+  .forecast-container {
+    max-width: 940px;
+  }
+
+  .forecast-details {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .day-details img {
+    max-width: 40px;
+  }
+
+  /* Reset button sizes and text for iPad and desktop */
+  .city-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .next-city {
+    font-size: 16px;
+    padding: 10px 20px;
   }
 }
 
@@ -146,4 +174,3 @@
     max-width: 40px;
   }
 }
-
