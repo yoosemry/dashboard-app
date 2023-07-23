@@ -71,7 +71,7 @@ logOut.addEventListener('click', (e)=>{
 
           },1000)
         } else {
-          swal("");
+          swal("Cancel");
         }
       });
 

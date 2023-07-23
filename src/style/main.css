@@ -363,6 +363,7 @@ form{
 .article-container{
   display: flex;
   flex-direction: column;
+  
 }
 
 .article-container .article-box{
@@ -386,15 +387,25 @@ form{
  
 }
 
-.articles {
+/* .articles {
   max-height: 1280px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
  grid-gap: 1rem;
-}
+} */
 
+
+
+.articles {
+  
+  display: grid;
+  grid-template-columns: [full-str] 1fr [center-str] repeat(8, [col-str] minmax(16rem, 1fr) [col-end] ) [center-end] 1fr [full-end];
+  padding: 1rem;
+
+}
 .articles .article{
   display: grid;
+grid-column: col-str 2 / col-end 7;
   grid-template-columns: 1fr;
   grid-template-rows: min-content;
   grid-row-gap: .3rem;
@@ -429,7 +440,7 @@ form{
 
 .articles .article img.article_Img{
   width: 100%;
-  height: 250px;
+  height: 500px;
   border-radius: 10px 10px 0 0;
   object-fit: cover;
 }
@@ -636,6 +647,19 @@ article model  */
     .overview-sections .overview-feeds{
         margin-top: 3rem;
     }
+
+    .articles {
+        display: flex;
+        flex-direction: column;
+ 
+      }
+
+      .articles .article img.article_Img{
+        width: 100%;
+        height: 250px;
+      }
+      
+    
   
 }
 

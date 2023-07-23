@@ -14,9 +14,11 @@ const imageUrl = document.querySelector('#imageUrl');
 const content = document.querySelector('#contentText');
 const category = document.querySelector('#category');
 
+let articlesData;
 
 
-let articleFromLocal;
+
+
 
 const perPage = 4;
 let currentPage = 1;
@@ -85,20 +87,22 @@ const articlesFromLocal =  function(){
 }
 
 
+articlesData = articlesFromLocal();
+
 
 
 const displayArticle =  function(){
 
-  const data = articlesFromLocal();
+  
   const startIndex = (currentPage - 1 ) * perPage;
   const endIndex = startIndex + perPage;
-  console.log(startIndex,endIndex)
+ 
    
-      const slides = data.slice(startIndex,endIndex); 
-      console.log(slides)
-  articlesContainer.innerHTML = '';
+  const slides = articlesData.slice(startIndex,endIndex); 
+    
+  //articlesContainer.innerHTML = '';
 
-  data.filter(fil => fil.userId === userInformation.userId).forEach((dato,ind) => {
+  slides.filter(fil => fil.userId === userInformation.userId).forEach((dato,ind) => {
 
     
         const html = `
@@ -136,9 +140,9 @@ const editArticle = function(id){
   const imageUrlUp = document.querySelector('#imageUrl_up');
   const contentUp = document.querySelector('#contentText_up');
   const categoryUp = document.querySelector('#category_up');
-    const getData = articlesFromLocal();
+    // const getData = articlesFromLocal();
 
-    const edit = getData.find((fin,index) => fin.id === id);
+    const edit = articlesData.find((fin,index) => fin.id === id);
     titleUp.value = edit.headline;
     imageUrlUp.value = edit.photoUrl;
     contentUp.value = edit.content;
@@ -158,9 +162,10 @@ const editArticle = function(id){
           userId : userInformation.userId   
       }
       
-      const updateLocal = getData.filter(fil => fil.id !== id);
+      const updateLocal = articlesData.filter(fil => fil.id !== id);
       updateLocal.push(update);
       localStorage.setItem('articles', JSON.stringify(updateLocal));
+      articlesData = articlesFromLocal();
      displayArticle();
      closeModalUp();
 
@@ -172,12 +177,11 @@ const editArticle = function(id){
 
 const deleteArticle = async function(id){
 
-    const myArticles=  articlesFromLocal();
-    const myNewArticle = myArticles.filter((fin,ind )=> ind !== id);
+    // const myArticles=  articlesFromLocal();
+    const myNewArticle = articlesData.filter((fin,ind )=> ind !== id);
      localStorage.setItem('articles', JSON.stringify(myNewArticle));
-      
+     articlesData = articlesFromLocal();
      displayArticle();
- 
    
 }
 
@@ -199,10 +203,10 @@ imageUrl.value = imageUrl.value.toLowerCase();
 category.value = category.value.toLowerCase();
 
 
-const getData = articlesFromLocal();
+// const getData = articlesFromLocal();
 
 const query = {
-    id : getData.length + 1,
+    id : articlesData.length + 1,
     headline : title.value,
     content: content.value,
     category : category.value,
@@ -217,12 +221,12 @@ const query = {
 
 });
 
-
+displayArticle();
 
 window.addEventListener('scroll', ()=>{
   const {scrollTop, scrollHeight, clientHeight} = document.documentElement;
   if(scrollTop + clientHeight >= scrollHeight){
-    console.log('load')
+    
     displayArticle();
   }
 });
@@ -231,7 +235,7 @@ window.addEventListener('scroll', ()=>{
 
 
 
-displayArticle();
+
 
 
 

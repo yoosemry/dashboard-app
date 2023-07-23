@@ -1,17 +1,24 @@
 const feedsContener = document.querySelector('.feeds-feeds')
 let userInformation = JSON.parse(localStorage.getItem('userInformation'));
-
 let articles = JSON.parse(localStorage.getItem('articles'));
+const itemsPage = 10;
+let current = 1;
 
 if(!userInformation){
   window.location.href = '/index.html';
 }
 
 
-const renderArticles = function(data){
-    feedsContener.innerHTML = '';
-   
-    data.filter(fil => fil.userId === userInformation.userId).forEach( article => {
+const renderArticles = function(){
+    // feedsContener.innerHTML = '';
+
+    const startIndex = (current -1)*itemsPage;
+    console.log(startIndex);
+    const endIndex = startIndex + itemsPage ; 
+    console.log(endIndex);
+    const articleItems = articles.slice(startIndex,endIndex);
+    console.log(articleItems)
+    articleItems.filter(fil => fil.userId === userInformation.userId).forEach( article => {
         
         let html = `
         <div class="feed-feed">
@@ -32,9 +39,11 @@ const renderArticles = function(data){
         feedsContener.insertAdjacentHTML('afterbegin', html)
 
     });
+
+    current ++;
 }
 
-renderArticles(articles)
+renderArticles()
 
 
 // console.log(userInformation)
