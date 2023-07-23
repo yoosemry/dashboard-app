@@ -7,11 +7,6 @@ let tasks = [];
 
 // Ka hel macluumaadka userka iyadoo laga keenayo userka
 let userInformation = JSON.parse(localStorage.getItem('userInformation'));
-if(!userInformation){
-  window.location.href = '/index.html';
-  
-}
-
 
 // kaydinta taskyada uu leeyahay user gaar ah  
 function loadTasksFromLocalStorage() {
@@ -125,5 +120,5 @@ function checkCompletedTasks() {
   });
 }
 
-// uyeeraya functionka checkcompletedtasks
+// uyeeraya functionka checkcompletedtask
 checkCompletedTasks();
